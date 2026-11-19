@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeNest Student Blog</title>
+    <style>
+      /* ===== BASE ===== */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Verdana, Arial, sans-serif;
+        background-color: #f5f2fb;
+        color: #490000;
+        line-height: 1.6;
+      }
+
+      /* ===== HEADER (Flexbox) + DROPDOWN ===== */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 14px 30px;
+        background-color: #2d0202;
+        color: white;
+      }
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .menu {
+        display: flex;
+        list-style: none;
+      }
+      .menu li {
+        position: relative;
+        margin-left: 20px;
+      }
+      .menu a {
+        display: block;
+        padding: 8px 12px;
+        color: white;
+        text-decoration: none;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 160px;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+      }
+      .dropdown-content a {
+        color: #28213d;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .intro h1 {
+        font-size: 2.2rem;
+        margin-bottom: 6px;
+      }
+
+      /* ===== MAIN + ASIDE (Flexbox) ===== */
+      .page {
+        display: flex;
+        gap: 20px;
+        max-width: 1150px;
+        margin: px auto;
+        padding: 0 20px;
+      }
+      main {
+        flex: 1;
+      }
+      aside {
+        flex: 0 0 250px;
+        height: fit-content;
+      }
+
+      main section,
+      aside {
+        background-color: white;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      main section {
+        margin-bottom: 20px;
+      }
+
+      h2,
+      h3 {
+        color: #3f2b78;
+        margin-bottom: 10px;
+      }
+
+      .categories {
+        padding-left: 18px;
+      }
+
+      .note {
+        background-color: #ffe9e9;
+        border-left: 4px solid #c24f4f;
+        padding: 10px;
+        margin-top: 12px;
+      }
+
+      footer {
+        background-color: #28213d;
+        color: white;
+        text-align: center;
+        padding: 18px;
+      }
+
+      /* ===== STUDENT WORK STARTS HERE ===== */
+      /* TODO (Part B-1): colour scheme, background and fonts for body, intro and sections    */
+      body {
+        background-color: #ffe1e1;
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      .intro {
+        text-align: center;
+        padding: 60px 20px;
+        background-color: #681003;
+        color: white;
+      }
+
+      /* TODO (Part B-2): Flexbox for the gallery images (e.g. .gallery)    */
+      #gallery {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+      /* TODO (Part B-3): style the table and the form (border, padding, margin, hover)       */
+      table {
+        border-style: dashed;
+        padding: 10px;
+        border-top-left-radius: 10%;
+        border-top-right-radius: 10%;
+        border-bottom-left-radius: 10%;
+        border-bottom-right-radius: 10%;
+      }
+      form {
+        background-color: #fcd8d8;
+        padding: 20px;
+        border-radius: 5%;
+        cursor: pointer;
+
+      }
+      
+      /* TODO (Part B-4): style links (hover), lists and the cursor                           */
+      #posts {
+        padding:5%;
+      }
+      .button:hover {
+        background-color: antiquewhite;
+      }
+
+      /* TODO (Part B-5): media query so that the page works on mobile (max-width: 768px)     */
+      @media (max-width:768px){
+        .container{grid-template-columns: lfr;}
+        header{flex-direction: column;}
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- ===== HEADER + NAV WITH DROPDOWN ===== -->
+    <header>
+      <div class="logo">CodeNest</div>
+      <nav>
+        <ul class="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li class="dropdown">
+            <a href="#posts">Posts &#9662;</a>
+            <div class="dropdown-content">
+              <a href="#posts">Web Design</a>
+              <a href="#posts">Python</a>
+              <a href="#posts">Careers</a>
+            </div>
+          </li>
+          <li><a href="#stats">Stats</a></li>
+          <li><a href="#subscribe">Subscribe</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="intro" id="home">
+      <h1>CodeNest Student Blog</h1>
+      <p>Notes, tips and projects written by learners, for learners.</p>
+      <!-- TODO (Part A-1): Add your Name and Register Number inside this intro section -->
+      <p>Name : Adithi Pramod</p>
+      <p>Register no. : 26112002</p>
+    </section>
+
+    <!-- ===== MAIN + ASIDE (Flexbox) ===== -->
+    <div class="page">
+      <main>
+        <section id="gallery">
+          <h2>Project Gallery</h2>
+          <!-- TODO (Part A-3): Insert 4 images from the images folder (use alt, width and height).
+             TODO (Part B-2): Arrange the images in a row using Flexbox. -->
+          <img src="HTML.png" alt = "HTML Logo" style="height: 100px; width: 100px;">
+          <img src="CSS.png" alt = "CSS Logo" style="height: 100px; width: 100px;">
+          <img src="JavaScript.jpg" alt = "JavaScript Logo" style="height: 100px; width: 100px;">
+          <img src="Integrated.png" alt = "Integrated Diagram" style="height: 100px; width: 100px;">
+
+        </section>
+
+        <section id="posts">
+          <h2>Latest Posts</h2>
+          <!-- TODO (Part A-2): Add an ORDERED list of 4 steps for "Setting up VS Code"
+             and an UNORDERED list of 4 blog post titles. -->
+          <h3>Setting up VS Code</h3>
+          <ol>
+            <li>Install VS Code</li>
+            <li>Set up VS Code by accepting terms and conditions</li>
+            <li>Install Live Server</li>
+            <li>Create new folder, then new file and code</li>
+          </ol><br>
+
+          <h3>Blog Post Titles</h3>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JAVASCRIPT</li>
+            <li>Integration to make complete website</li>
+          </ul>
+        </section>
+
+        <section id="stats">
+          <h2>Blog Statistics</h2>
+          <!-- TODO (Part A-4): Create a table with the headings Month, Posts, Readers, Comments
+             and at least 4 rows of data. Use thead and tbody. -->
+          <table>
+            <tr>
+                <th>Month</th>
+                <th>Posts</th>
+                <th>Readers</th>
+                <th>Comments</th>
+            </tr>
+            <tr>
+                <td>January</td>
+                <td>40</td>
+                <td>240</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td>February</td>
+                <td>32</td>
+                <td>440</td>
+                <td>120</td>
+            </tr>
+            <tr>
+                <td>March</td>
+                <td>52</td>
+                <td>520</td>
+                <td>330</td>
+            </tr>
+            <tr>
+                <td>April</td>
+                <td>100</td>
+                <td>440</td>
+                <td>170</td>
+            </tr>
+            <tr>
+                <td>May</td>
+                <td>66</td>
+                <td>600</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td>June</td>
+                <td>12</td>
+                <td>440</td>
+                <td>120</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>12</td>
+                <td>870</td>
+                <td>365</td>
+            </tr><tr>
+                <td>August</td>
+                <td>12</td>
+                <td>1100</td>
+                <td>735</td>
+            </tr><tr>
+                <td>September</td>
+                <td>12</td>
+                <td>1700</td>
+                <td>480</td>
+            </tr><tr>
+                <td>October</td>
+                <td>70</td>
+                <td>1800</td>
+                <td>810</td>
+          </table>
+        </section>
+
+        <section id="subscribe">
+          <h2>Subscribe</h2>
+          <!-- TODO (Part A-5): Create a registration form (see question paper for fields). -->
+          <form>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" placeholder="Eg. John" required><br>
+            <label for="p_no">Phone no.:</label><br>
+            <input type="number" id="p_no" placeholder="Eg. 91xxxxxxxxxx" required><br>
+            <label for="month">How many months subscription do you intend to take ?</label><br>
+            <input type="number" id="month" placeholder="Eg. 3, 6, 12" required><br>
+            <label for="emailID">Email ID:</label><br>
+            <input type="email" id="emailID" placeholder="Eg. abc@gmail.com" required><br>
+            <button type="submit">Subscribe</button>
+          </form>
+        </section>
+      </main>
+
+      <aside>
+        <h3>Categories</h3>
+        <ul class="categories">
+          <li>HTML &amp; CSS</li>
+          <li>JavaScript</li>
+          <li>Python</li>
+          <li>Career Tips</li>
+        </ul>
+        <div class="note">New post every Friday!</div>
+        <!-- TODO (Part A-6): Add two links here. One must open in a new tab,
+           and one must be an image link (clickable image). -->
+        <a href="www.w3schools.com" target="_blank">W3 Schools</a>
+        <a href="every_friday.jpg">New post</a>
+        <!-- TODO (Part C): Add a button that changes the colour of the note box
+           when clicked (use JavaScript and a variable). --> 
+        <script>
+        const button = document.getElementById("colorBtn");
+        </script>
+      </aside>
+    </div>
+
+
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <p>&copy; 2026 CodeNest Student Blog. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
